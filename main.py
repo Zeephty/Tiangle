@@ -2,16 +2,17 @@ import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt6.QtGui import QPainter, QColor
 from random import randrange
-import ui
+from PyQt6 import uic
 
  
-class MyWidget(QMainWindow, ui.Ui_MainWindow):
+class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setGeometry(0, 0, 400, 400)
         self.setMouseTracking(True)
 
-        self.setupUi(self)
+        uic.loadUi("UI.ui", self)
+        
         self.pushButton.clicked.connect(self.toggle)
 
         self.b = False
